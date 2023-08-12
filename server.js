@@ -35,8 +35,8 @@ mongoose.connection
 ////////////////////////////////
 const BeerSchema = new mongoose.Schema({
   name: String,
+  type: String,
   image: String,
-  title: String,
 });
 
 const Beer = mongoose.model("Beer", BeerSchema);
@@ -70,7 +70,7 @@ app.get("/beer", async (req, res) => {
 // CREATE ROUTE
 app.post("/beer", async (req, res) => {
   try {
-    // send all examples
+    // send all beers
     res.json(await Beer.create(req.body));
   } catch (error) {
     //send error
